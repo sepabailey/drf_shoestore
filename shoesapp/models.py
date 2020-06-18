@@ -48,7 +48,7 @@ class ShoeColor(models.Model):
 
 class Shoe(models.Model):
     size = models.IntegerField()
-    branch_name = models.CharField(max_length=50)
+    brand_name = models.CharField(max_length=50)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     color = models.ForeignKey(ShoeColor, on_delete=models.CASCADE)
     material = models.CharField(max_length=100)
@@ -56,4 +56,4 @@ class Shoe(models.Model):
     fasten_type = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.branch_name
+        return self.brand_name

@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from shoesapp import views
+from shoesapp.views import *
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'ShoeColor', views.ShoeColorViewSet)
+router.register(r'ShoeType', views.ShoeTypeViewSet)
+router.register(r'ShoeView', views.ShoeViewSet)
+router.register(r'Manufacturer', views.ManufacturerViewSet)
 
 
 urlpatterns = [

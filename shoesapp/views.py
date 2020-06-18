@@ -1,17 +1,34 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from shoesapp.serializers import UserSerializer, GroupSerializer
+from shoesapp.serializers import ShoeSerializer, ShoeColorSerializer, ShoeTypeSerializer, ManufacturerSerializer
+from shoesapp.models import Shoe, ShoeColor, ShoeType, Manufacturer
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
+class ManufacturerViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Manufacturer.objects.all()
+    serializer_class = ManufacturerSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+class ShoeViewSet(viewsets.ModelViewSet):
+
+    queryset = Shoe.objects.all()
+    serializer_class = ShoeSerializer
+
+
+class ShoeColorViewSet(viewsets.ModelViewSet):
+
+    queryset = ShoeColor.objects.all()
+    serializer_class = ShoeColorSerializer
+
+
+class ShoeTypeViewSet(viewsets.ModelViewSet):
+
+    queryset = ShoeType.objects.all()
+    serializer_class = ShoeTypeSerializer
 
 
 # Fun fact about Joe. He was raised by Cape Hunting Dogs.
